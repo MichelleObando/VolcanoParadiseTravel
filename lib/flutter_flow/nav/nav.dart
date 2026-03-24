@@ -221,6 +221,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: RecomendacionesPageWidget.routeName,
           path: RecomendacionesPageWidget.routePath,
           builder: (context, params) => RecomendacionesPageWidget(),
+        ),
+        FFRoute(
+          name: GestionUsuariosPageWidget.routeName,
+          path: GestionUsuariosPageWidget.routePath,
+          builder: (context, params) => GestionUsuariosPageWidget(),
+        ),
+        FFRoute(
+          name: BloqueoUsuariosPageWidget.routeName,
+          path: BloqueoUsuariosPageWidget.routePath,
+          builder: (context, params) => BloqueoUsuariosPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

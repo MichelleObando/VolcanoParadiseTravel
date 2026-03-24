@@ -48,3 +48,7 @@ export '/gestion/gestion_imagenes_page/gestion_imagenes_page_widget.dart'
     show GestionImagenesPageWidget;
 export '/consulta_destinos/recomendaciones_page/recomendaciones_page_widget.dart'
     show RecomendacionesPageWidget;
+export '/gestion/gestion_usuarios_page/gestion_usuarios_page_widget.dart'
+    show GestionUsuariosPageWidget;
+export '/gestion/bloqueo_usuarios_page/bloqueo_usuarios_page_widget.dart'
+    show BloqueoUsuariosPageWidget;
