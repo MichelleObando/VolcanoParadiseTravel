@@ -16,45 +16,43 @@ class PromotionsRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "descripcion" field.
-  String? _descripcion;
-  String get descripcion => _descripcion ?? '';
-  bool hasDescripcion() => _descripcion != null;
+  // "titulo" field.
+  String? _titulo;
+  String get titulo => _titulo ?? '';
+  bool hasTitulo() => _titulo != null;
 
-  // "porcentajeDescuento" field.
-  double? _porcentajeDescuento;
-  double get porcentajeDescuento => _porcentajeDescuento ?? 0.0;
-  bool hasPorcentajeDescuento() => _porcentajeDescuento != null;
+  // "descuento" field.
+  int? _descuento;
+  int get descuento => _descuento ?? 0;
+  bool hasDescuento() => _descuento != null;
 
-  // "fechaVigenciaInicio" field.
-  DateTime? _fechaVigenciaInicio;
-  DateTime? get fechaVigenciaInicio => _fechaVigenciaInicio;
-  bool hasFechaVigenciaInicio() => _fechaVigenciaInicio != null;
+  // "fechaInicio" field.
+  DateTime? _fechaInicio;
+  DateTime? get fechaInicio => _fechaInicio;
+  bool hasFechaInicio() => _fechaInicio != null;
 
-  // "fechaVigenciaFin" field.
-  DateTime? _fechaVigenciaFin;
-  DateTime? get fechaVigenciaFin => _fechaVigenciaFin;
-  bool hasFechaVigenciaFin() => _fechaVigenciaFin != null;
+  // "fechaFinal" field.
+  DateTime? _fechaFinal;
+  DateTime? get fechaFinal => _fechaFinal;
+  bool hasFechaFinal() => _fechaFinal != null;
 
-  // "volcanesAplicables" field.
-  List<DocumentReference>? _volcanesAplicables;
-  List<DocumentReference> get volcanesAplicables =>
-      _volcanesAplicables ?? const [];
-  bool hasVolcanesAplicables() => _volcanesAplicables != null;
+  // "categorias" field.
+  List<String>? _categorias;
+  List<String> get categorias => _categorias ?? const [];
+  bool hasCategorias() => _categorias != null;
 
-  // "condiciones" field.
-  String? _condiciones;
-  String get condiciones => _condiciones ?? '';
-  bool hasCondiciones() => _condiciones != null;
+  // "Imagen" field.
+  String? _imagen;
+  String get imagen => _imagen ?? '';
+  bool hasImagen() => _imagen != null;
 
   void _initializeFields() {
-    _descripcion = snapshotData['descripcion'] as String?;
-    _porcentajeDescuento =
-        castToType<double>(snapshotData['porcentajeDescuento']);
-    _fechaVigenciaInicio = snapshotData['fechaVigenciaInicio'] as DateTime?;
-    _fechaVigenciaFin = snapshotData['fechaVigenciaFin'] as DateTime?;
-    _volcanesAplicables = getDataList(snapshotData['volcanesAplicables']);
-    _condiciones = snapshotData['condiciones'] as String?;
+    _titulo = snapshotData['titulo'] as String?;
+    _descuento = castToType<int>(snapshotData['descuento']);
+    _fechaInicio = snapshotData['fechaInicio'] as DateTime?;
+    _fechaFinal = snapshotData['fechaFinal'] as DateTime?;
+    _categorias = getDataList(snapshotData['categorias']);
+    _imagen = snapshotData['Imagen'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -92,19 +90,19 @@ class PromotionsRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createPromotionsRecordData({
-  String? descripcion,
-  double? porcentajeDescuento,
-  DateTime? fechaVigenciaInicio,
-  DateTime? fechaVigenciaFin,
-  String? condiciones,
+  String? titulo,
+  int? descuento,
+  DateTime? fechaInicio,
+  DateTime? fechaFinal,
+  String? imagen,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'descripcion': descripcion,
-      'porcentajeDescuento': porcentajeDescuento,
-      'fechaVigenciaInicio': fechaVigenciaInicio,
-      'fechaVigenciaFin': fechaVigenciaFin,
-      'condiciones': condiciones,
+      'titulo': titulo,
+      'descuento': descuento,
+      'fechaInicio': fechaInicio,
+      'fechaFinal': fechaFinal,
+      'Imagen': imagen,
     }.withoutNulls,
   );
 
@@ -117,22 +115,22 @@ class PromotionsRecordDocumentEquality implements Equality<PromotionsRecord> {
   @override
   bool equals(PromotionsRecord? e1, PromotionsRecord? e2) {
     const listEquality = ListEquality();
-    return e1?.descripcion == e2?.descripcion &&
-        e1?.porcentajeDescuento == e2?.porcentajeDescuento &&
-        e1?.fechaVigenciaInicio == e2?.fechaVigenciaInicio &&
-        e1?.fechaVigenciaFin == e2?.fechaVigenciaFin &&
-        listEquality.equals(e1?.volcanesAplicables, e2?.volcanesAplicables) &&
-        e1?.condiciones == e2?.condiciones;
+    return e1?.titulo == e2?.titulo &&
+        e1?.descuento == e2?.descuento &&
+        e1?.fechaInicio == e2?.fechaInicio &&
+        e1?.fechaFinal == e2?.fechaFinal &&
+        listEquality.equals(e1?.categorias, e2?.categorias) &&
+        e1?.imagen == e2?.imagen;
   }
 
   @override
   int hash(PromotionsRecord? e) => const ListEquality().hash([
-        e?.descripcion,
-        e?.porcentajeDescuento,
-        e?.fechaVigenciaInicio,
-        e?.fechaVigenciaFin,
-        e?.volcanesAplicables,
-        e?.condiciones
+        e?.titulo,
+        e?.descuento,
+        e?.fechaInicio,
+        e?.fechaFinal,
+        e?.categorias,
+        e?.imagen
       ]);
 
   @override

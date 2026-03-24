@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -742,8 +743,10 @@ class _FormularioOfertaPageWidgetState
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          await PromotionsRecord.collection
+                              .doc()
+                              .set(createPromotionsRecordData());
                         },
                         text: 'Guardar Oferta',
                         options: FFButtonOptions(
