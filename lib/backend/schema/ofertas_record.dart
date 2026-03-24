@@ -8,8 +8,8 @@ import '/backend/schema/util/schema_util.dart';
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class PromotionsRecord extends FirestoreRecord {
-  PromotionsRecord._(
+class OfertasRecord extends FirestoreRecord {
+  OfertasRecord._(
     DocumentReference reference,
     Map<String, dynamic> data,
   ) : super(reference, data) {
@@ -21,10 +21,10 @@ class PromotionsRecord extends FirestoreRecord {
   String get titulo => _titulo ?? '';
   bool hasTitulo() => _titulo != null;
 
-  // "descuento" field.
-  int? _descuento;
-  int get descuento => _descuento ?? 0;
-  bool hasDescuento() => _descuento != null;
+  // "descripcion" field.
+  String? _descripcion;
+  String get descripcion => _descripcion ?? '';
+  bool hasDescripcion() => _descripcion != null;
 
   // "fechaInicio" field.
   DateTime? _fechaInicio;
@@ -41,98 +41,98 @@ class PromotionsRecord extends FirestoreRecord {
   List<String> get categorias => _categorias ?? const [];
   bool hasCategorias() => _categorias != null;
 
-  // "Imagen" field.
-  String? _imagen;
-  String get imagen => _imagen ?? '';
-  bool hasImagen() => _imagen != null;
+  // "creadoEn" field.
+  DateTime? _creadoEn;
+  DateTime? get creadoEn => _creadoEn;
+  bool hasCreadoEn() => _creadoEn != null;
 
   void _initializeFields() {
     _titulo = snapshotData['titulo'] as String?;
-    _descuento = castToType<int>(snapshotData['descuento']);
+    _descripcion = snapshotData['descripcion'] as String?;
     _fechaInicio = snapshotData['fechaInicio'] as DateTime?;
     _fechaFinal = snapshotData['fechaFinal'] as DateTime?;
     _categorias = getDataList(snapshotData['categorias']);
-    _imagen = snapshotData['Imagen'] as String?;
+    _creadoEn = snapshotData['creadoEn'] as DateTime?;
   }
 
   static CollectionReference get collection =>
-      FirebaseFirestore.instance.collection('Promotions');
+      FirebaseFirestore.instance.collection('ofertas');
 
-  static Stream<PromotionsRecord> getDocument(DocumentReference ref) =>
-      ref.snapshots().map((s) => PromotionsRecord.fromSnapshot(s));
+  static Stream<OfertasRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => OfertasRecord.fromSnapshot(s));
 
-  static Future<PromotionsRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then((s) => PromotionsRecord.fromSnapshot(s));
+  static Future<OfertasRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => OfertasRecord.fromSnapshot(s));
 
-  static PromotionsRecord fromSnapshot(DocumentSnapshot snapshot) =>
-      PromotionsRecord._(
+  static OfertasRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      OfertasRecord._(
         snapshot.reference,
         mapFromFirestore(snapshot.data() as Map<String, dynamic>),
       );
 
-  static PromotionsRecord getDocumentFromData(
+  static OfertasRecord getDocumentFromData(
     Map<String, dynamic> data,
     DocumentReference reference,
   ) =>
-      PromotionsRecord._(reference, mapFromFirestore(data));
+      OfertasRecord._(reference, mapFromFirestore(data));
 
   @override
   String toString() =>
-      'PromotionsRecord(reference: ${reference.path}, data: $snapshotData)';
+      'OfertasRecord(reference: ${reference.path}, data: $snapshotData)';
 
   @override
   int get hashCode => reference.path.hashCode;
 
   @override
   bool operator ==(other) =>
-      other is PromotionsRecord &&
+      other is OfertasRecord &&
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createPromotionsRecordData({
+Map<String, dynamic> createOfertasRecordData({
   String? titulo,
-  int? descuento,
+  String? descripcion,
   DateTime? fechaInicio,
   DateTime? fechaFinal,
-  String? imagen,
+  DateTime? creadoEn,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'titulo': titulo,
-      'descuento': descuento,
+      'descripcion': descripcion,
       'fechaInicio': fechaInicio,
       'fechaFinal': fechaFinal,
-      'Imagen': imagen,
+      'creadoEn': creadoEn,
     }.withoutNulls,
   );
 
   return firestoreData;
 }
 
-class PromotionsRecordDocumentEquality implements Equality<PromotionsRecord> {
-  const PromotionsRecordDocumentEquality();
+class OfertasRecordDocumentEquality implements Equality<OfertasRecord> {
+  const OfertasRecordDocumentEquality();
 
   @override
-  bool equals(PromotionsRecord? e1, PromotionsRecord? e2) {
+  bool equals(OfertasRecord? e1, OfertasRecord? e2) {
     const listEquality = ListEquality();
     return e1?.titulo == e2?.titulo &&
-        e1?.descuento == e2?.descuento &&
+        e1?.descripcion == e2?.descripcion &&
         e1?.fechaInicio == e2?.fechaInicio &&
         e1?.fechaFinal == e2?.fechaFinal &&
         listEquality.equals(e1?.categorias, e2?.categorias) &&
-        e1?.imagen == e2?.imagen;
+        e1?.creadoEn == e2?.creadoEn;
   }
 
   @override
-  int hash(PromotionsRecord? e) => const ListEquality().hash([
+  int hash(OfertasRecord? e) => const ListEquality().hash([
         e?.titulo,
-        e?.descuento,
+        e?.descripcion,
         e?.fechaInicio,
         e?.fechaFinal,
         e?.categorias,
-        e?.imagen
+        e?.creadoEn
       ]);
 
   @override
-  bool isValidKey(Object? o) => o is PromotionsRecord;
+  bool isValidKey(Object? o) => o is OfertasRecord;
 }

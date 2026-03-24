@@ -191,6 +191,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: CalificacionHotelPageWidget.routeName,
           path: CalificacionHotelPageWidget.routePath,
           builder: (context, params) => CalificacionHotelPageWidget(),
+        ),
+        FFRoute(
+          name: ReporteReservasPageWidget.routeName,
+          path: ReporteReservasPageWidget.routePath,
+          builder: (context, params) => ReporteReservasPageWidget(),
+        ),
+        FFRoute(
+          name: GestionVolcanesPageWidget.routeName,
+          path: GestionVolcanesPageWidget.routePath,
+          builder: (context, params) => GestionVolcanesPageWidget(),
+        ),
+        FFRoute(
+          name: GestionHotelesPageWidget.routeName,
+          path: GestionHotelesPageWidget.routePath,
+          builder: (context, params) => GestionHotelesPageWidget(),
+        ),
+        FFRoute(
+          name: DisponibilidadToursPageWidget.routeName,
+          path: DisponibilidadToursPageWidget.routePath,
+          builder: (context, params) => DisponibilidadToursPageWidget(),
+        ),
+        FFRoute(
+          name: GestionImagenesPageWidget.routeName,
+          path: GestionImagenesPageWidget.routePath,
+          builder: (context, params) => GestionImagenesPageWidget(),
+        ),
+        FFRoute(
+          name: RecomendacionesPageWidget.routeName,
+          path: RecomendacionesPageWidget.routePath,
+          builder: (context, params) => RecomendacionesPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

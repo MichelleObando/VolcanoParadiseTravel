@@ -10,9 +10,9 @@ import 'schema/volcanoes_record.dart';
 import 'schema/tours_record.dart';
 import 'schema/hotels_record.dart';
 import 'schema/bookings_record.dart';
-import 'schema/promotions_record.dart';
 import 'schema/events_record.dart';
 import 'schema/reviews_record.dart';
+import 'schema/ofertas_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -26,9 +26,9 @@ export 'schema/volcanoes_record.dart';
 export 'schema/tours_record.dart';
 export 'schema/hotels_record.dart';
 export 'schema/bookings_record.dart';
-export 'schema/promotions_record.dart';
 export 'schema/events_record.dart';
 export 'schema/reviews_record.dart';
+export 'schema/ofertas_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -215,43 +215,6 @@ Future<List<BookingsRecord>> queryBookingsRecordOnce({
       singleRecord: singleRecord,
     );
 
-/// Functions to query PromotionsRecords (as a Stream and as a Future).
-Future<int> queryPromotionsRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      PromotionsRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<PromotionsRecord>> queryPromotionsRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      PromotionsRecord.collection,
-      PromotionsRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<PromotionsRecord>> queryPromotionsRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      PromotionsRecord.collection,
-      PromotionsRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
 /// Functions to query EventsRecords (as a Stream and as a Future).
 Future<int> queryEventsRecordCount({
   Query Function(Query)? queryBuilder,
@@ -321,6 +284,43 @@ Future<List<ReviewsRecord>> queryReviewsRecordOnce({
     queryCollectionOnce(
       ReviewsRecord.collection,
       ReviewsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query OfertasRecords (as a Stream and as a Future).
+Future<int> queryOfertasRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      OfertasRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<OfertasRecord>> queryOfertasRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      OfertasRecord.collection,
+      OfertasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<OfertasRecord>> queryOfertasRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      OfertasRecord.collection,
+      OfertasRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

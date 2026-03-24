@@ -1,5 +1,4 @@
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -49,23 +48,10 @@ class _ListaVolcanesPageWidgetState extends State<ListaVolcanesPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Color(0xFF009688),
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderRadius: 8.0,
-            buttonSize: 40.0,
-            fillColor: Color(0xFF009688),
-            icon: Icon(
-              Icons.arrow_back,
-              color: FlutterFlowTheme.of(context).info,
-              size: 24.0,
-            ),
-            onPressed: () {
-              print('IconButton pressed ...');
-            },
-          ),
           title: Align(
             alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
@@ -90,7 +76,7 @@ class _ListaVolcanesPageWidgetState extends State<ListaVolcanesPageWidget> {
             ),
           ),
           actions: [],
-          centerTitle: false,
+          centerTitle: true,
           elevation: 2.0,
         ),
         body: SafeArea(
@@ -127,6 +113,8 @@ class _ListaVolcanesPageWidgetState extends State<ListaVolcanesPageWidget> {
                                           .labelMedium
                                           .fontStyle,
                                     ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -145,7 +133,7 @@ class _ListaVolcanesPageWidgetState extends State<ListaVolcanesPageWidget> {
                                           .labelMedium
                                           .fontStyle,
                                     ),
-                                    color: Color(0x7E57636C),
+                                    color: Colors.black,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w200,
                                     fontStyle: FlutterFlowTheme.of(context)
@@ -154,7 +142,8 @@ class _ListaVolcanesPageWidgetState extends State<ListaVolcanesPageWidget> {
                                   ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0x00000000),
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
@@ -181,8 +170,7 @@ class _ListaVolcanesPageWidgetState extends State<ListaVolcanesPageWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               filled: true,
-                              fillColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                              fillColor: Color(0x3157636C),
                               prefixIcon: Icon(
                                 Icons.search_rounded,
                                 color: Colors.black,
@@ -254,7 +242,7 @@ class _ListaVolcanesPageWidgetState extends State<ListaVolcanesPageWidget> {
                             return Card(
                               clipBehavior: Clip.antiAliasWithSaveLayer,
                               color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                                  .primaryBackground,
                               elevation: 0.0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -470,7 +458,11 @@ class _ListaVolcanesPageWidgetState extends State<ListaVolcanesPageWidget> {
                                     Align(
                                       alignment: AlignmentDirectional(1.0, 0.0),
                                       child: Text(
-                                        '4.7',
+                                        valueOrDefault<String>(
+                                          listViewVolcanoesRecord.averageGrade
+                                              .toString(),
+                                          '0',
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -507,7 +499,7 @@ class _ListaVolcanesPageWidgetState extends State<ListaVolcanesPageWidget> {
                                             onPressed: () {
                                               print('Button pressed ...');
                                             },
-                                            text: 'Galería',
+                                            text: 'Detalles',
                                             options: FFButtonOptions(
                                               height: 40.0,
                                               padding: EdgeInsetsDirectional

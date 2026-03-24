@@ -36,3 +36,15 @@ export '/consulta_destinos/comentarios_tour_page/comentarios_tour_page_widget.da
     show ComentariosTourPageWidget;
 export '/consulta_destinos/calificacion_hotel_page/calificacion_hotel_page_widget.dart'
     show CalificacionHotelPageWidget;
+export '/gestion/reporte_reservas_page/reporte_reservas_page_widget.dart'
+    show ReporteReservasPageWidget;
+export '/gestion/gestion_volcanes_page/gestion_volcanes_page_widget.dart'
+    show GestionVolcanesPageWidget;
+export '/gestion/gestion_hoteles_page/gestion_hoteles_page_widget.dart'
+    show GestionHotelesPageWidget;
+export '/reservas/disponibilidad_tours_page/disponibilidad_tours_page_widget.dart'
+    show DisponibilidadToursPageWidget;
+export '/gestion/gestion_imagenes_page/gestion_imagenes_page_widget.dart'
+    show GestionImagenesPageWidget;
+export '/consulta_destinos/recomendaciones_page/recomendaciones_page_widget.dart'
+    show RecomendacionesPageWidget;

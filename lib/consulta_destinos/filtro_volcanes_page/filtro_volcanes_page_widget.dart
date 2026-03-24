@@ -788,7 +788,7 @@ class _FiltroVolcanesPageWidgetState extends State<FiltroVolcanesPageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 0.0, 16.0, 0.0),
                                             child: Container(
-                                              height: 36.0,
+                                              height: 41.96,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFFF0FAF9),
                                                 borderRadius:
