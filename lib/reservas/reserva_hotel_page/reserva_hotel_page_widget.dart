@@ -274,7 +274,7 @@ class _ReservaHotelPageWidgetState extends State<ReservaHotelPageWidget> {
                                         ),
                                         Container(
                                           width: 80.0,
-                                          height: 20.0,
+                                          height: 28.8,
                                           decoration: BoxDecoration(
                                             color: Colors.green,
                                             borderRadius:

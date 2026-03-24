@@ -1,8 +1,10 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'iniciar_sesion_page_model.dart';
 export 'iniciar_sesion_page_model.dart';
@@ -345,114 +347,22 @@ class _IniciarSesionPageWidgetState extends State<IniciarSesionPageWidget> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.all(18.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Theme(
-                    data: ThemeData(
-                      checkboxTheme: CheckboxThemeData(
-                        visualDensity: VisualDensity.compact,
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4.0),
-                        ),
-                      ),
-                      unselectedWidgetColor:
-                          FlutterFlowTheme.of(context).alternate,
-                    ),
-                    child: Checkbox(
-                      value: _model.checkboxValue ??= true,
-                      onChanged: (newValue) async {
-                        safeSetState(() => _model.checkboxValue = newValue!);
-                      },
-                      side: (FlutterFlowTheme.of(context).alternate != null)
-                          ? BorderSide(
-                              width: 2,
-                              color: FlutterFlowTheme.of(context).alternate,
-                            )
-                          : null,
-                      activeColor: Colors.black,
-                      checkColor: FlutterFlowTheme.of(context).info,
-                    ),
-                  ),
-                  RichText(
-                    textScaler: MediaQuery.of(context).textScaler,
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'Aceptar ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                        ),
-                        TextSpan(
-                          text: 'Términos y Condiciones ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                        ),
-                        TextSpan(
-                          text: ' para continuar',
-                          style: TextStyle(),
-                        )
-                      ],
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            font: GoogleFonts.inter(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
-                            ),
-                            letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
-                          ),
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                ],
-              ),
-            ),
-            Padding(
               padding: EdgeInsets.all(14.0),
               child: FFButtonWidget(
-                onPressed: () {
-                  print('BotonSesion pressed ...');
+                onPressed: () async {
+                  GoRouter.of(context).prepareAuthEvent();
+
+                  final user = await authManager.signInWithEmail(
+                    context,
+                    _model.txtCorreoTextController.text,
+                    _model.txtPassTextController.text,
+                  );
+                  if (user == null) {
+                    return;
+                  }
+
+                  context.goNamedAuth(
+                      ListaVolcanesPageWidget.routeName, context.mounted);
                 },
                 text: 'Iniciar Sesión',
                 options: FFButtonOptions(
@@ -489,17 +399,27 @@ class _IniciarSesionPageWidgetState extends State<IniciarSesionPageWidget> {
               padding: EdgeInsets.all(14.0),
               child: FFButtonWidget(
                 onPressed: () async {
-                  context.pushNamed(RegistroPageWidget.routeName);
+                  GoRouter.of(context).prepareAuthEvent();
+                  final user = await authManager.signInWithGoogle(context);
+                  if (user == null) {
+                    return;
+                  }
+
+                  context.goNamedAuth(
+                      ListaVolcanesPageWidget.routeName, context.mounted);
                 },
-                text: 'Cancelar',
+                text: 'Continuar con Google',
+                icon: FaIcon(
+                  FontAwesomeIcons.google,
+                  size: 15.0,
+                ),
                 options: FFButtonOptions(
                   width: 350.0,
                   height: 43.3,
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                  iconAlignment: IconAlignment.start,
                   iconPadding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         font: GoogleFonts.interTight(
                           fontWeight: FlutterFlowTheme.of(context)
@@ -516,7 +436,6 @@ class _IniciarSesionPageWidgetState extends State<IniciarSesionPageWidget> {
                         fontStyle:
                             FlutterFlowTheme.of(context).titleSmall.fontStyle,
                       ),
-                  elevation: 0.0,
                   borderSide: BorderSide(
                     color: Colors.black,
                   ),

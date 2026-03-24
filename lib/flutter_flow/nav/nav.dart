@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
+import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -75,16 +76,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? FormularioOfertaPageWidget()
-          : RegistroPageWidget(),
+      errorBuilder: (context, state) =>
+          appStateNotifier.loggedIn ? NavBarPage() : RegistroPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? FormularioOfertaPageWidget()
-              : RegistroPageWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? NavBarPage() : RegistroPageWidget(),
         ),
         FFRoute(
           name: AdminOfertasPageWidget.routeName,
@@ -114,7 +113,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ReservaHotelPageWidget.routeName,
           path: ReservaHotelPageWidget.routePath,
-          builder: (context, params) => ReservaHotelPageWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'ReservaHotelPage')
+              : ReservaHotelPageWidget(),
         ),
         FFRoute(
           name: RegistroPageWidget.routeName,
@@ -129,12 +130,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: OfertasPageWidget.routeName,
           path: OfertasPageWidget.routePath,
-          builder: (context, params) => OfertasPageWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'OfertasPage')
+              : OfertasPageWidget(),
         ),
         FFRoute(
           name: ListaVolcanesPageWidget.routeName,
           path: ListaVolcanesPageWidget.routePath,
-          builder: (context, params) => ListaVolcanesPageWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'ListaVolcanesPage')
+              : ListaVolcanesPageWidget(),
         ),
         FFRoute(
           name: GesstionReservasPageWidget.routeName,

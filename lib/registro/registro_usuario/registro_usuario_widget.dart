@@ -1,7 +1,10 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'registro_usuario_model.dart';
 export 'registro_usuario_model.dart';
@@ -25,9 +28,6 @@ class _RegistroUsuarioWidgetState extends State<RegistroUsuarioWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => RegistroUsuarioModel());
-
-    _model.txtNombreTextController ??= TextEditingController();
-    _model.txtNombreFocusNode ??= FocusNode();
 
     _model.txtCorreoTextController ??= TextEditingController();
     _model.txtCorreoFocusNode ??= FocusNode();
@@ -88,128 +88,6 @@ class _RegistroUsuarioWidgetState extends State<RegistroUsuarioWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          width: 200.0,
-                          child: TextFormField(
-                            controller: _model.txtNombreTextController,
-                            focusNode: _model.txtNombreFocusNode,
-                            autofocus: false,
-                            enabled: true,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              isDense: true,
-                              labelText: 'Nombre',
-                              labelStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.black,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                              hintText: 'Nombre',
-                              hintStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.black,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).error,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).error,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              filled: true,
-                              fillColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.inter(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                                  color: Color(0x6F000000),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
-                            textAlign: TextAlign.start,
-                            cursorColor: Colors.black,
-                            enableInteractiveSelection: true,
-                            validator: _model.txtNombreTextControllerValidator
-                                .asValidator(context),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 Padding(
                   padding: EdgeInsets.all(20.0),
                   child: Row(
@@ -468,114 +346,22 @@ class _RegistroUsuarioWidgetState extends State<RegistroUsuarioWidget> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.all(18.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Theme(
-                    data: ThemeData(
-                      checkboxTheme: CheckboxThemeData(
-                        visualDensity: VisualDensity.compact,
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4.0),
-                        ),
-                      ),
-                      unselectedWidgetColor:
-                          FlutterFlowTheme.of(context).alternate,
-                    ),
-                    child: Checkbox(
-                      value: _model.checkboxValue ??= true,
-                      onChanged: (newValue) async {
-                        safeSetState(() => _model.checkboxValue = newValue!);
-                      },
-                      side: (FlutterFlowTheme.of(context).alternate != null)
-                          ? BorderSide(
-                              width: 2,
-                              color: FlutterFlowTheme.of(context).alternate,
-                            )
-                          : null,
-                      activeColor: Colors.black,
-                      checkColor: FlutterFlowTheme.of(context).info,
-                    ),
-                  ),
-                  RichText(
-                    textScaler: MediaQuery.of(context).textScaler,
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'Aceptar ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                        ),
-                        TextSpan(
-                          text: 'Términos y Condiciones ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                        ),
-                        TextSpan(
-                          text: ' para continuar',
-                          style: TextStyle(),
-                        )
-                      ],
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            font: GoogleFonts.inter(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
-                            ),
-                            letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
-                          ),
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                ],
-              ),
-            ),
-            Padding(
               padding: EdgeInsets.all(14.0),
               child: FFButtonWidget(
-                onPressed: () {
-                  print('BotonSesion pressed ...');
+                onPressed: () async {
+                  GoRouter.of(context).prepareAuthEvent();
+
+                  final user = await authManager.createAccountWithEmail(
+                    context,
+                    _model.txtCorreoTextController.text,
+                    _model.txtPassTextController.text,
+                  );
+                  if (user == null) {
+                    return;
+                  }
+
+                  context.goNamedAuth(
+                      ListaVolcanesPageWidget.routeName, context.mounted);
                 },
                 text: 'Crear Usuario',
                 options: FFButtonOptions(
@@ -603,6 +389,54 @@ class _RegistroUsuarioWidgetState extends State<RegistroUsuarioWidget> {
                       ),
                   borderSide: BorderSide(
                     color: Colors.black,
+                  ),
+                  borderRadius: BorderRadius.circular(18.0),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(14.0),
+              child: FFButtonWidget(
+                onPressed: () async {
+                  GoRouter.of(context).prepareAuthEvent();
+                  final user = await authManager.signInWithGoogle(context);
+                  if (user == null) {
+                    return;
+                  }
+
+                  context.goNamedAuth(
+                      ListaVolcanesPageWidget.routeName, context.mounted);
+                },
+                text: 'Continuar con Google',
+                icon: FaIcon(
+                  FontAwesomeIcons.google,
+                  size: 15.0,
+                ),
+                options: FFButtonOptions(
+                  width: 350.0,
+                  height: 43.3,
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        font: GoogleFonts.interTight(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                        ),
+                        color: Colors.black,
+                        fontSize: 25.0,
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                      ),
+                  borderSide: BorderSide(
+                    color: FlutterFlowTheme.of(context).primaryText,
                   ),
                   borderRadius: BorderRadius.circular(18.0),
                 ),

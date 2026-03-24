@@ -1,7 +1,9 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -135,8 +137,8 @@ class _RegistroPageWidgetState extends State<RegistroPageWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 16.0, 16.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('MailBoton pressed ...');
+                          onPressed: () async {
+                            context.pushNamed(RegistroUsuarioWidget.routeName);
                           },
                           text: 'Regístrate con correo electrónico',
                           icon: Icon(
@@ -212,8 +214,17 @@ class _RegistroPageWidgetState extends State<RegistroPageWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 16.0, 16.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('GoogleBoton pressed ...');
+                          onPressed: () async {
+                            GoRouter.of(context).prepareAuthEvent();
+                            final user =
+                                await authManager.signInWithGoogle(context);
+                            if (user == null) {
+                              return;
+                            }
+
+                            context.goNamedAuth(
+                                ListaVolcanesPageWidget.routeName,
+                                context.mounted);
                           },
                           text: 'Regístrate con Google',
                           icon: FaIcon(
@@ -294,6 +305,12 @@ class _RegistroPageWidgetState extends State<RegistroPageWidget> {
                                             .fontStyle,
                                         decoration: TextDecoration.underline,
                                       ),
+                                  mouseCursor: SystemMouseCursors.click,
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () async {
+                                      context.pushNamed(
+                                          IniciarSesionPageWidget.routeName);
+                                    },
                                 )
                               ],
                               style: FlutterFlowTheme.of(context)

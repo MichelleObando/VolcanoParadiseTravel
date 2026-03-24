@@ -15,8 +15,6 @@ class IniciarSesionPageModel extends FlutterFlowModel<IniciarSesionPageWidget> {
   TextEditingController? txtPassTextController;
   late bool txtPassVisibility;
   String? Function(BuildContext, String?)? txtPassTextControllerValidator;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue;
 
   @override
   void initState(BuildContext context) {

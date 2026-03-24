@@ -46,15 +46,15 @@ class VolcanoesRecord extends FirestoreRecord {
   List<String> get necessaryEquipment => _necessaryEquipment ?? const [];
   bool hasNecessaryEquipment() => _necessaryEquipment != null;
 
-  // "imageGallery" field.
-  List<String>? _imageGallery;
-  List<String> get imageGallery => _imageGallery ?? const [];
-  bool hasImageGallery() => _imageGallery != null;
-
   // "averageGrade" field.
   double? _averageGrade;
   double get averageGrade => _averageGrade ?? 0.0;
   bool hasAverageGrade() => _averageGrade != null;
+
+  // "imagen" field.
+  String? _imagen;
+  String get imagen => _imagen ?? '';
+  bool hasImagen() => _imagen != null;
 
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
@@ -63,8 +63,8 @@ class VolcanoesRecord extends FirestoreRecord {
     _difficultyLevel = snapshotData['difficultyLevel'] as String?;
     _recommendedSeason = snapshotData['recommendedSeason'] as String?;
     _necessaryEquipment = getDataList(snapshotData['necessaryEquipment']);
-    _imageGallery = getDataList(snapshotData['imageGallery']);
     _averageGrade = castToType<double>(snapshotData['averageGrade']);
+    _imagen = snapshotData['imagen'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -108,6 +108,7 @@ Map<String, dynamic> createVolcanoesRecordData({
   String? difficultyLevel,
   String? recommendedSeason,
   double? averageGrade,
+  String? imagen,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -117,6 +118,7 @@ Map<String, dynamic> createVolcanoesRecordData({
       'difficultyLevel': difficultyLevel,
       'recommendedSeason': recommendedSeason,
       'averageGrade': averageGrade,
+      'imagen': imagen,
     }.withoutNulls,
   );
 
@@ -135,8 +137,8 @@ class VolcanoesRecordDocumentEquality implements Equality<VolcanoesRecord> {
         e1?.difficultyLevel == e2?.difficultyLevel &&
         e1?.recommendedSeason == e2?.recommendedSeason &&
         listEquality.equals(e1?.necessaryEquipment, e2?.necessaryEquipment) &&
-        listEquality.equals(e1?.imageGallery, e2?.imageGallery) &&
-        e1?.averageGrade == e2?.averageGrade;
+        e1?.averageGrade == e2?.averageGrade &&
+        e1?.imagen == e2?.imagen;
   }
 
   @override
@@ -147,8 +149,8 @@ class VolcanoesRecordDocumentEquality implements Equality<VolcanoesRecord> {
         e?.difficultyLevel,
         e?.recommendedSeason,
         e?.necessaryEquipment,
-        e?.imageGallery,
-        e?.averageGrade
+        e?.averageGrade,
+        e?.imagen
       ]);
 
   @override
