@@ -26,3 +26,13 @@ export '/gestion/dashboard_page/dashboard_page_widget.dart'
     show DashboardPageWidget;
 export '/registro/registro_usuario/registro_usuario_widget.dart'
     show RegistroUsuarioWidget;
+export '/registro/recuperar_contrasena_page/recuperar_contrasena_page_widget.dart'
+    show RecuperarContrasenaPageWidget;
+export '/gestion/editar_perfil_page/editar_perfil_page_widget.dart'
+    show EditarPerfilPageWidget;
+export '/consulta_destinos/filtro_volcanes_page/filtro_volcanes_page_widget.dart'
+    show FiltroVolcanesPageWidget;
+export '/consulta_destinos/comentarios_tour_page/comentarios_tour_page_widget.dart'
+    show ComentariosTourPageWidget;
+export '/consulta_destinos/calificacion_hotel_page/calificacion_hotel_page_widget.dart'
+    show CalificacionHotelPageWidget;

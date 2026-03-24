@@ -271,8 +271,12 @@ class _ListaVolcanesPageWidgetState extends State<ListaVolcanesPageWidget> {
                                           listViewVolcanoesRecord.imagen,
                                           'https://firebasestorage.googleapis.com/v0/b/volcanoparadisetravelg7.firebasestorage.app/o/Login%2Fimages.jpg?alt=media&token=de4f1b6f-9197-444b-9784-10becf024f5b',
                                         ),
-                                        width: 308.37,
-                                        height: 129.2,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.6,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.15,
                                         fit: BoxFit.cover,
                                       ),
                                     ),

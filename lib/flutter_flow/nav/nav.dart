@@ -93,7 +93,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: FormularioOfertaPageWidget.routeName,
           path: FormularioOfertaPageWidget.routePath,
-          builder: (context, params) => FormularioOfertaPageWidget(),
+          builder: (context, params) => FormularioOfertaPageWidget(
+            seleccionCategorias: params.getParam<String>(
+              'seleccionCategorias',
+              ParamType.String,
+              isList: true,
+            ),
+          ),
         ),
         FFRoute(
           name: MisReservasPageWidget.routeName,
@@ -160,6 +166,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: RegistroUsuarioWidget.routeName,
           path: RegistroUsuarioWidget.routePath,
           builder: (context, params) => RegistroUsuarioWidget(),
+        ),
+        FFRoute(
+          name: RecuperarContrasenaPageWidget.routeName,
+          path: RecuperarContrasenaPageWidget.routePath,
+          builder: (context, params) => RecuperarContrasenaPageWidget(),
+        ),
+        FFRoute(
+          name: EditarPerfilPageWidget.routeName,
+          path: EditarPerfilPageWidget.routePath,
+          builder: (context, params) => EditarPerfilPageWidget(),
+        ),
+        FFRoute(
+          name: FiltroVolcanesPageWidget.routeName,
+          path: FiltroVolcanesPageWidget.routePath,
+          builder: (context, params) => FiltroVolcanesPageWidget(),
+        ),
+        FFRoute(
+          name: ComentariosTourPageWidget.routeName,
+          path: ComentariosTourPageWidget.routePath,
+          builder: (context, params) => ComentariosTourPageWidget(),
+        ),
+        FFRoute(
+          name: CalificacionHotelPageWidget.routeName,
+          path: CalificacionHotelPageWidget.routePath,
+          builder: (context, params) => CalificacionHotelPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
