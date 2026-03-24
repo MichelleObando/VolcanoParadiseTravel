@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "42650214790",
+    "project_id": "volcanoparadisetravelg7",
+    "storage_bucket": "volcanoparadisetravelg7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42650214790:android:f646239df2ee75b73ccc07",
+        "android_client_info": {
+          "package_name": "com.VolcanoParadiseTravel.proyectogruposiete"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42650214790-664kqmjnvds5a6v90f4td035r8cpg062.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.VolcanoParadiseTravel.proyectogruposiete",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "42650214790-12tbkg3rh8udqsouifa4kn3pr7b9k9i7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX925fi9aFcWNFCq_7b2k00Sg_B5ig4Oo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42650214790-12tbkg3rh8udqsouifa4kn3pr7b9k9i7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "42650214790-rsgq8geejdtqk5bmnritponvp7dh6un7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.VolcanoParadiseTravel.proyectogruposiete"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

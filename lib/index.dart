@@ -1,0 +1,28 @@
+// Export pages
+export '/administracionde_ofertas/admin_ofertas_page/admin_ofertas_page_widget.dart'
+    show AdminOfertasPageWidget;
+export '/administracionde_ofertas/formulario_oferta_page/formulario_oferta_page_widget.dart'
+    show FormularioOfertaPageWidget;
+export '/reservas/mis_reservas_page/mis_reservas_page_widget.dart'
+    show MisReservasPageWidget;
+export '/reservas/detalle_reserva_page/detalle_reserva_page_widget.dart'
+    show DetalleReservaPageWidget;
+export '/reservas/reserva_tour_volcan_page/reserva_tour_volcan_page_widget.dart'
+    show ReservaTourVolcanPageWidget;
+export '/reservas/reserva_hotel_page/reserva_hotel_page_widget.dart'
+    show ReservaHotelPageWidget;
+export '/registro/registro_page/registro_page_widget.dart'
+    show RegistroPageWidget;
+export '/registro/iniciar_sesion_page/iniciar_sesion_page_widget.dart'
+    show IniciarSesionPageWidget;
+export '/gestion/ofertas_page/ofertas_page_widget.dart' show OfertasPageWidget;
+export '/consulta_destinos/lista_volcanes_page/lista_volcanes_page_widget.dart'
+    show ListaVolcanesPageWidget;
+export '/gestion/gesstion_reservas_page/gesstion_reservas_page_widget.dart'
+    show GesstionReservasPageWidget;
+export '/gestion/gestion_calendario/gestion_calendario_widget.dart'
+    show GestionCalendarioWidget;
+export '/gestion/dashboard_page/dashboard_page_widget.dart'
+    show DashboardPageWidget;
+export '/registro/registro_usuario/registro_usuario_widget.dart'
+    show RegistroUsuarioWidget;
